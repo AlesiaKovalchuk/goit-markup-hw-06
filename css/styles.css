@@ -2,7 +2,7 @@
    /* Текстові кольори */
 --main-txt-color: #757575;
 --header-color: #212121;
---accent-color: #2196f3;
+--accent-color: #2196F3;
 --txt-color: #FFFFFF;
 --add-color: rgba(255, 255, 255, 0.6);
 
@@ -13,7 +13,7 @@
 
 /* Інше */
 --animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
---
+
 }
 
 
@@ -705,54 +705,395 @@ address {
 
 }
 
+/* Форма підписки */
 
 
 
+.flex-container-subscribe {
+      
 
-/* Modal */
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+    margin-left: auto; 
 }
+
+.subscribe-form {
+    display: flex;
+}
+
+.mailing {
+ display: block;
+    margin: 0;
+    
+    font-weight: 700;
+    font-size: 16px;
+    line-height: calc(30/16);
+    letter-spacing: 00.06em;
+    text-transform: uppercase;
+}
+    
+    
+    
+
+.subscribe-field {
+    
+    display: block;
+    width: 358px;
+    height: 50px;
+    padding: 15px;
+    padding-left: 16px;
+margin-top: 20px;
+    font-weight: 400;
+        font-size: 16px;
+        line-height: calc(20/16);
+        letter-spacing: 0.03em;
+    background-color: var(--section-bg-color);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.6);
+
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 200ms;
+} 
+
+.subscribe-field::placeholder  {
+    
+    top: 15px;
+    left:16px;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: calc(20/16);
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.subscribe-field:hover,
+.subscribe-field:focus {
+    border-color: white;
+}
+
+.footer-btn {
+    
+   display: block;
+    margin: 0;
+    margin-top: 20px;
+    margin-left: 12px; 
+    padding: 0;
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+    background-color: var(--accent-color);
+    color: var(--txt-color);
+    border: none;
+    border-radius: 4px;
+text-align: center;
+justify-content: center;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 200ms;
+ 
+}
+
+.footer-btn:hover,
+.footer-btn:focus {
+    border-color: white;
+}
+
+
+
+.icon-subscribe {
+    
+    padding: 0;   
+    
+    fill: var(--txt-color)
+    
+}
+
+
+
+
+
+
+
+/* Модальне вікно */
+ 
 .backdrop.is-hidden {
-  opacity: 0;
-  pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
 }
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 528px;
-  min-height: 581px;
-  background-color: var(--secondary-accent-clr);
-  border-radius: 4px;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-  transition-property: transform;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;
+    width: 528px;
+    height: 581px;
+    top: 50%;
+    left: 50%;
+    padding: 40px 39px 41px;
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: 1px 0px 2px rgba(0, 0, 0, 0.2),
+        1px 0px 1px rgba(0, 0, 0, 0.14),
+        3px 0px 1px rgba(0, 0, 0, 0.12);
 }
-.modal-close-btn {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin-top: 8px;
-  margin-right: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: var(--secondary-accent-clr);
-  border-radius: 50%;
-  cursor: pointer;
+
+
+
+.modal-btn {
+    position: absolute;
+     width: 30px;
+    height: 30px;
+    border-radius: 50%; 
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+    fill: var(--header-color);
+     background-color: var(--main-bg-color); 
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 250ms,
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1) 250ms;
 }
+
+.modal-btn:hover,
+.modal-btn:focus {
+    fill: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+/* Форма модалки */
+
+.form-title {
+    display: block;
+    text-align: center;
+font-weight: 700;
+font-size: 20px;
+line-height: 23.44px;
+letter-spacing: 0.03em;
+margin-bottom: 12px;
+
+color: var(--header-color);
+}
+
+.form-group {
+    margin: 0 auto;
+    padding: 0;
+   display: block;  
+
+}
+
+.label {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.01em;
+    margin: 0;
+    margin-bottom: 4px;
+
+    color: rgba(117, 117, 117, 1);
+}
+
+.f-group {
+    position: relative;
+    
+   
+}
+
+.field {
+
+    width: 100%;
+    height: 40px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    
+    padding-left: 42px;
+    margin: 0; 
+    margin-bottom: 12px;    
+
+
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+
+}
+
+.field:hover,
+.field:focus {
+
+    border-color: var(--accent-color);
+}
+
+.field:focus-within + .f-icon {
+    fill: var(--accent-color);
+    stroke: var(--accent-color);
+}
+
+.f-icon {
+   position: absolute; 
+    width: 15px;
+        height: 15px;
+   top: 14px;
+   left: 15px;
+   margin-right: 20px;
+   
+
+
+transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 250ms;    
+    
+} 
+
+.f-icon:hover {
+    fill: var(--accent-color);
+}
+
+
+
+
+.t-label {
+    margin: 0;
+    margin-bottom: 4px;
+    padding: 0;
+    font-weight: 400;
+        font-size: 12px;
+        line-height: 14.06px;
+        letter-spacing: 0.01em;
+        color: rgba(117, 117, 117, 1);
+}
+
+.comment {
+    width: 100%;
+    height: 120px;
+    resize: none;
+    padding: 12px 16px;
+    margin-bottom: -12px;
+    border: 1.5px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    border-color: rgba(33, 33, 33, 0.2);
+    color: rgba(117, 117, 117, 0.5);
+
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+}
+
+.comment::placeholder {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14.06px;
+    letter-spacing: 0.01em;
+    color: grba(117, 117, 117, 0.5);
+}
+
+.comment:hover,
+.comment:focus {
+    border-color: var(--accent-color);
+}
+
+
+
+/* Checkbox */
+
+ .check-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+} 
+
+.icon {
+    display: block;
+    width: 16px;
+    height: 15px;
+    border: 1px solid color var(--header-color);
+}
+
+.check-input:checked~.icon {
+    opacity: 0;
+    border-color: var(--accent-color);
+    background-color: var(--accent-color);
+    background-image: url(../images/checked.svg);
+    background-size: contain;
+    background-origin: border-box;
+    border: 1px solid rgba(33, 33, 33, 1);
+}
+
+.check-input:unchecked~.icon {
+    opacity: 1;
+    border: 1px solid rgba(33, 33, 33, 1);
+
+}
+
+
+
+.check-text {
+    margin-top: 20px;
+    margin-left: 50px;
+    display: inline-flex;
+    user-select: none;
+}
+
+
+
+.form-link {
+    display: block;
+    margin-left: 4px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: calc(24/14);
+    letter-spacing: 0.03em;
+
+    color: rgba(117, 117, 117, 1);
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+}
+
+.form-link:hover,
+.form-link:focus {
+    color: rgba(33, 150, 243, 1)
+}
+
+.btn-form {
+    display: block;
+    width: 200px;
+    height: 50px;
+    margin-right: auto;
+    margin-top: 22px;
+    margin-left: auto;
+    background-color: var(--accent-color);
+        color: var(--txt-color);
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+
+        transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+}
+
+.btn-form:hover,
+.btn-form:focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
+        0px 4px 4px rgba(0, 0, 0, 0.06),
+        1px 4px 6px rgba(0, 0, 0, 0.16);;
+}
+
+
+
+
+
 
 
 
